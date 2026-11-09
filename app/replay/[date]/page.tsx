@@ -1,6 +1,7 @@
 "use client"
 import { use, useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
+export const dynamic = 'force-dynamic'
 export default function Replay({params}:{params:Promise<{date:string}>}){
 const {date} = use(params)
 const [m,setM]=useState<any[]>([])
