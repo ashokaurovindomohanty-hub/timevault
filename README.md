@@ -34,3 +34,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+# TimeVault ✨ — Your Past, Remembered
+Save, revisit, and chat with your memories on a celestial timeline.
+Live: https://timevault.vercel.app
+## Features
+- ✨ Celestial Timeline
+- ➕ Add Memory (private vault)
+- 💬 Ask Your Past (AI chat)
+- 🔐 Auth — private per user
+## Stack
+Next.js + Supabase + Vercel + Tailwind
+## Try it
+1. Sign Up
+2. Add a memory
+3. Chat with your past
