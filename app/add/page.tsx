@@ -5,7 +5,9 @@ export default function Add(){
  const [msg,setMsg]=useState("")
  const [repo,setRepo]=useState("")
  const save=async()=>{
-  await supabase.from('memories').insert({message:msg,repo})
+  const {data:{user}}=await supabase.auth.getUser()
+  if(!user) return location.href="/login"
+  await supabase.from('memories').insert({message:msg,repo,user_id:user.id})
   alert("Saved to TimeVault ✨")
   location.href="/timeline"
  }
