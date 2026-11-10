@@ -1,6 +1,15 @@
 export default function Home(){
  return (
   <main className="min-h-screen bg-[#04010f] text-white flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
+<nav className="relative flex justify-between items-center w-full max-w-5xl mx-auto py-4">
+  <span className="font-black text-xl bg-gradient-to-r from-violet-300 to-cyan-300 bg-clip-text text-transparent">TimeVault ✨</span>
+  <div className="flex gap-4 text-sm">
+    <a href="/timeline" className="opacity-70 hover:opacity-100 hover:text-violet-300">Timeline</a>
+    <a href="/add" className="opacity-70 hover:opacity-100 hover:text-violet-300">Add</a>
+    <a href="/chat" className="opacity-70 hover:opacity-100 hover:text-violet-300">Chat</a>
+    <a href="/login" className="bg-white text-black px-4 py-1.5 rounded-full font-bold">Login</a>
+  </div>
+</nav>
     <div className="absolute inset-0 bg-gradient-to-b from-violet-900/40 via-fuchsia-600/20 to-cyan-500/20" />
     <div className="absolute -top-32 -right-32 w-[600px] h-[600px] bg-violet-600/30 blur-[120px] rounded-full" />
     <div className="absolute -bottom-32 -left-32 w-[600px] h-[600px] bg-cyan-500/20 blur-[120px] rounded-full" />
