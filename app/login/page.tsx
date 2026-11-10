@@ -20,11 +20,11 @@ export default function Login(){
     <div className="flex gap-3 mt-6">
       <button onClick={login} className="bg-gradient-to-r from-violet-600 to-fuchsia-600 px-8 py-3 rounded-full font-bold">Login</button>
       <button onClick={signup} className="bg-white/10 border border-white/10 px-8 py-3 rounded-full font-bold">Sign Up</button>
+    </div>
 <p className="mt-8 text-center text-sm opacity-60 max-w-md leading-relaxed">
   ✨ New here? Click <span className="text-violet-300 font-bold">Sign Up</span> to create your private vault.<br/>
   Already have an account? <span className="text-cyan-300 font-bold">Login</span> and your memories await on the Timeline.
 </p>
-    </div>
   </main>
  )
 }
