@@ -20,6 +20,10 @@ export default function Login(){
     <div className="relative w-full max-w-md mt-3">
     <input type={show?"text":"password"} value={pass} onChange={e=>setPass(e.target.value)} placeholder="Password" className="w-full bg-white/5 border border-white/10 rounded-xl p-3 pr-12 outline-none" />
     </div>
+    <div className="flex gap-3 mt-6">
+      <button onClick={login} className="bg-gradient-to-r from-violet-600 to-fuchsia-600 px-8 py-3 rounded-full font-bold">Login</button>
+      <button onClick={signup} className="bg-white/10 border border-white/10 px-8 py-3 rounded-full font-bold">Sign Up</button>
+    </div>
       <button type="button" onClick={()=>setShow(!show)} className="absolute right-3 top-3 text-sm opacity-60">{show?"Hide":"View"}</button>
       <button onClick={async()=>{
         if(!email) return alert("Enter email first")
@@ -28,10 +32,6 @@ export default function Login(){
       }} className="text-sm opacity-70 underline mt-2">
         Forgot password?
       </button>
-    <div className="flex gap-3 mt-6">
-      <button onClick={login} className="bg-gradient-to-r from-violet-600 to-fuchsia-600 px-8 py-3 rounded-full font-bold">Login</button>
-      <button onClick={signup} className="bg-white/10 border border-white/10 px-8 py-3 rounded-full font-bold">Sign Up</button>
-    </div>
 <p className="mt-8 text-center text-sm opacity-60 max-w-md leading-relaxed">
   ✨ New here? Click <span className="text-violet-300 font-bold">Sign Up</span> to create your private vault.<br/>
   Already have an account? <span className="text-cyan-300 font-bold">Login</span> and your memories await on the Timeline.
