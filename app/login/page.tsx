@@ -32,6 +32,15 @@ export default function Login(){
       }} className="text-sm opacity-70 underline mt-2">
         Forgot password?
       </button>
+      <button onClick={async()=>{
+        const {error}=await supabase.auth.signInWithOAuth({
+          provider: 'google',
+          options: { redirectTo: window.location.origin }
+        })
+        if(error) alert(error.message)
+      }} className="w-full bg-white text-black rounded-xl p-3 mt-3 font-medium">
+        Continue with Google
+      </button>
 <p className="mt-8 text-center text-sm opacity-60 max-w-md leading-relaxed">
   ✨ New here? Click <span className="text-violet-300 font-bold">Sign Up</span> to create your private vault.<br/>
   Already have an account? <span className="text-cyan-300 font-bold">Login</span> and your memories await on the Timeline.
