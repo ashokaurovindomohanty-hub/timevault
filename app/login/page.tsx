@@ -35,7 +35,7 @@ export default function Login(){
       <button onClick={async()=>{
         const {error}=await supabase.auth.signInWithOAuth({
           provider: 'google',
-          options: { redirectTo: https://timevault-pi.vercel.app }
+          options: { redirectTo: 'https://timevault-pi.vercel.app' }
         })
         if(error) alert(error.message)
       }} className="w-full bg-white text-black rounded-xl p-3 mt-3 font-medium">
