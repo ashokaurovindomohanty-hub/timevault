@@ -25,10 +25,9 @@ export default function Login(){
       <button onClick={login} className="bg-gradient-to-r from-violet-600 to-fuchsia-600 px-8 py-3 rounded-full font-bold">Login</button>
       <button onClick={signup} className="bg-white/10 border border-white/10 px-8 py-3 rounded-full font-bold">Sign Up</button>
     </div>
-    <button onClick={async()=>{ if(!email) return alert("Enter email first") const {error}=await supabase.auth.resetPasswordForEmail(email, {redirectTo: "https://timevault-pi.vercel.app/login"}) alert(error? error.message : "Reset link sent to email ✨")
-      }} className="text-sm opacity-70 underline mt-2">
-        Forgot password?
-      </button>
+    <button onClick={async()=>{ if(!email) return alert("Enter email first"); const {error}=await supabase.auth.resetPasswordForEmail(email, {redirectTo: "https://timevault-pi.vercel.app/login"}); alert(error? error.message : "Reset link sent to email ✨") }} className="text-sm opacity-70 underline mt-2">
+      Forgot password?
+    </button>
       <button onClick={async()=>{
         const {error}=await supabase.auth.signInWithOAuth({
           provider: 'google',
