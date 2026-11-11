@@ -4,16 +4,17 @@ import { supabase } from '@/lib/supabase'
 
 export default function Timeline(){
  const [list,setList]=useState<any[]>([])
- useEffect(()=>{
-  supabase.auth.getUser().then(async({data:{user}})=>{
-   if(!user) location.href="/login"
-   else {
-    const {data}=await supabase.from('memories').select('*').eq('user_id',user.id)
-    if(data && data.length) setList(data.map(d=>({id:d.id,title:d.message,desc:d.repo})))
-    else setList([{id:'1',title:'TimeVault Born',desc:'Your journey begins ✨'}])
-   }
+useEffect(()=>{
+  supabase.auth.getSession().then(async({data:{session}})=>{
+    if(!session) location.href="/login"
+    else {
+      const user = session.user
+      const {data}=await supabase.from('memories').select('*').eq('user_id',user.id)
+      if(data && data.length) setList(data.map(d=>({id:d.id,title:d.message,desc:d.repo})))
+      else setList([{id:'1',title:'TimeVault Born',desc:'Your journey begins ✨'}])
+    }
   })
- },[])
+},[])
  const [mounted,setMounted]=useState(false)
  useEffect(()=>setMounted(true),[])
  if(!mounted) return null
