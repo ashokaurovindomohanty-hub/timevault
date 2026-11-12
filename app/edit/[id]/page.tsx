@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase'
 export default function Edit({params}:{params:{id:string}}){
   const id = params.id
   const [msg,setMsg]=useState("")
-  useEffect(()=>{ supabase.from('memories').select('desc').eq('id',id).single().then(({data})=> setMsg(data?.message||"")) },[id])
+  useEffect(()=>{ supabase.from('memories').select('desc').eq('id',id).single().then(({data})=> setMsg(data?.desc||"")) },[id])
   const save=async()=>{
     await supabase.from('memories').update({desc:msg, edited_at: new Date().toISOString()}).eq('id',id)
     location.href="/timeline"
