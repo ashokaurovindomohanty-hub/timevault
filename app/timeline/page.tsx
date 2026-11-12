@@ -35,6 +35,7 @@ useEffect(()=>{
         >
           Delete
         </button>
+<a href={`/edit/${i.id}`} className="text-xs text-violet-300 border border-violet-400/20 rounded-full px-3 py-1 mr-2">Edit</a>
       </div>
     ))}
     <a href="/add" className="fixed bottom-6 right-6 bg-gradient-to-r from-violet-600 to-fuchsia-600 w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-[0_0_20px_rgba(168,85,247,0.6)]">+</a>
