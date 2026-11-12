@@ -27,7 +27,7 @@ useEffect(()=>{
         <h2 className="font-bold">{i.title}</h2>
         <p className="opacity-60 text-sm mt-1">{i.desc}</p>
 	<p className="text-[10px] opacity-40 mt-1">
-	  Created: {new Date(i.created_at).toLocaleString()}
+	  Created: {i.created_at ? new Date(i.created_at).toLocaleString() : 'just now'}
 	  {i.edited_at && ` • Edited: ${new Date(i.edited_at).toLocaleString()}`}
 	</p>
         <button
