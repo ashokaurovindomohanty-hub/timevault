@@ -1,10 +1,9 @@
 "use client"
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
-import { useParams } from 'next/navigation'
-
-export default function Edit(){
-  const {id} = useParams()
+export const dynamic = 'force-dynamic'
+export default function Edit({params}:{params:{id:string}}){
+  const id = params.id
   const [msg,setMsg]=useState("")
   useEffect(()=>{ supabase.from('memories').select('message').eq('id',id).single().then(({data})=> setMsg(data?.message||"")) },[id])
   const save=async()=>{
