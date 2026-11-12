@@ -10,7 +10,7 @@ useEffect(()=>{
     else {
       const user = session.user
       const {data}=await supabase.from('memories').select('*').eq('user_id',user.id)
-      if(data && data.length) setList(data.map(d=>({id:d.id,title:d.message,desc:d.repo})))
+      if(data && data.length) setList(data.map(d=>({id:d.id,title:d.message,desc:d.repo, created_at:d.created_at, edited_at:d.edited_at})))
       else setList([{id:'1',title:'TimeVault Born',desc:'Your journey begins ✨'}])
     }
   })
