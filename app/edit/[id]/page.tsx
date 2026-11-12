@@ -1,11 +1,14 @@
 "use client"
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
-export default function Edit({params}:{params:{id:string}}){
+import { useParams } from 'next/navigation'
+
+export default function Edit(){
+  const {id} = useParams()
   const [msg,setMsg]=useState("")
-  useEffect(()=>{supabase.from('memories').select().eq('id',params.id).single().then(({data})=>setMsg(data.message))},[])
+  useEffect(()=>{ supabase.from('memories').select('message').eq('id',id).single().then(({data})=> setMsg(data?.message||"")) },[id])
   const save=async()=>{
-    await supabase.from('memories').update({message:msg}).eq('id',params.id)
+    await supabase.from('memories').update({message:msg, edited_at: new Date().toISOString()}).eq('id',id)
     location.href="/timeline"
   }
   return(
