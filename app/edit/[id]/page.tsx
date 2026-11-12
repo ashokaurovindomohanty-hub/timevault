@@ -1,7 +1,6 @@
 "use client"
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
-export const dynamic = 'force-dynamic'
 export default function Edit({params}:{params:{id:string}}){
   const id = params.id
   const [msg,setMsg]=useState("")
