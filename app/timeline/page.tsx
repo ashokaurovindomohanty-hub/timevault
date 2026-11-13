@@ -4,6 +4,7 @@ import { supabase } from '@/lib/supabase'
 
 export default function Timeline(){
  const [list,setList]=useState<any[]>([])
+  const [q,setQ]=useState("")
 useEffect(()=>{
   supabase.auth.getSession().then(async({data:{session}})=>{
     if(!session) location.href="/login"
@@ -26,7 +27,8 @@ useEffect(()=>{
       <p className="text-xs opacity-60">Total Memories</p>
       <p className="text-2xl font-black text-violet-300">{list.length}</p>
     </div>
-    {list.map(i=>(
+    <input value={q} onChange={e=>setQ(e.target.value)} placeholder="Search memories..." className="w-full bg-white/5 border border-white/10 rounded-xl p-3 mb-4 outline-none" />
+    {list.filter(i=> i.title.toLowerCase().includes(q.toLowerCase())).map(i=>(
       <div key={i.id} className="relative border border-violet-500/20 bg-white/[0.04] backdrop-blur p-5 my-3 rounded-2xl hover:border-violet-400/40 transition" style={{boxShadow:'0 0 20px rgba(124,58,237,0.15)'}}>
         <h2 className="font-bold">{i.title}</h2>
         <p className="opacity-60 text-sm mt-1">{i.desc}</p>
