@@ -19,6 +19,11 @@ export default function Timeline(){
       }
     })
   },[])
+async function deleteMemory(id:string){
+  const {error}=await supabase.from('memories').delete().eq('id',id)
+  if(!error) setList(prev=>prev.filter(x=>x.id!==id))
+  else alert(error.message)
+}
 async function saveEdit(id:string){
   const {error}=await supabase.from('memories').update({message: editTitle, repo: editDesc, edited_at: new Date().toISOString()}).eq('id', id)
   if(!error){
