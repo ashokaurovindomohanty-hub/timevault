@@ -59,7 +59,7 @@ async function saveEdit(id:string){
 	</p>
 {i.tags && i.tags.length>0 && (
   <div className="flex flex-wrap gap-2 mt-3">
-    {i.tags.map(t=>(
+    {i.tags.map((t:string)=>(
       <span key={t} className="text-xs px-2 py-1 rounded-full bg-violet-500/20 border border-violet-500/30">#{t}</span>
     ))}
   </div>
