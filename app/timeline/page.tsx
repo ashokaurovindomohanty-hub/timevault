@@ -52,7 +52,7 @@ async function saveEdit(id:string){
     {filtered.map(i=>(
       <div key={i.id} className="relative border border-violet-500/20 bg-white/[0.04] backdrop-blur p-5 my-3 rounded-2xl hover:border-violet-400/40 transition" style={{boxShadow:'0 0 20px rgba(124,58,237,0.15)'}}>
         <h2 className="font-bold">{i.title}</h2>
-        <p className="opacity-60 text-sm mt-1">{i.desc}</p>
+        {i.desc && <p className="opacity-60 text-sm mt-1">{i.desc}</p>}
 	<p className="text-[10px] opacity-40 mt-1">
 	  Created: {i.created_at ? new Date(i.created_at).toLocaleString() : 'just now'}
 	  {i.edited_at && ` • Edited: ${new Date(i.edited_at).toLocaleString()}`}
