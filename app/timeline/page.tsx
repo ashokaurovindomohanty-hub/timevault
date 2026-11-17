@@ -75,7 +75,7 @@ async function saveEdit(id:string){
       <textarea 
         value={editDesc} 
         onChange={e=>setEditDesc(e.target.value)} 
-        placeholder="Description"
+        placeholder="Memory Title"
         className="border p-2 text-sm w-full rounded"
       />
       <div className="flex gap-2">
