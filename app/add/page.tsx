@@ -21,9 +21,9 @@ export default function Add(){
  return(
   <main className="min-h-screen bg-[#04010f] text-white p-6 flex flex-col items-center">
     <h1 className="text-3xl font-black bg-gradient-to-r from-violet-300 to-cyan-300 bg-clip-text text-transparent">Add Memory ✨</h1>
-    <input value={msg} onChange={e=>setMsg(e.target.value)} placeholder="What happened?" className="mt-6 w-full max-w-md bg-white/5 border border-white/10 rounded-xl p-3 outline-none focus:border-violet-400/50" />
-    <input value={repo} onChange={e=>setRepo(e.target.value)} placeholder="Tag / repo (optional)" className="mt-3 w-full max-w-md bg-white/5 border border-white/10 rounded-xl p-3 outline-none focus:border-violet-400/50" />
-    <input value={tags} onChange={e=>setTags(e.target.value)} placeholder="tags, comma separated" className="border p-2 w-full rounded" />
+    <input value={msg} onChange={e=>setMsg(e.target.value)} placeholder="Write to capture a moment... ✨" className="mt-6 w-full max-w-md bg-white/5 border border-white/10 rounded-xl p-3 outline-none focus:border-violet-400/50" />
+    <input value={repo} onChange={e=>setRepo(e.target.value)} placeholder="Moment Title (optional)" className="mt-3 w-full max-w-md bg-white/5 border border-white/10 rounded-xl p-3 outline-none focus:border-violet-400/50" />
+    <input value={tags} onChange={e=>setTags(e.target.value)} placeholder="add tag /tags using comma" className="border p-2 w-full rounded" />
     <button onClick={save} className="mt-6 bg-gradient-to-r from-violet-600 to-fuchsia-600 px-8 py-3 rounded-full font-bold shadow-[0_0_20px_rgba(168,85,247,0.6)]">Save to Vault</button>
   </main>
  )
