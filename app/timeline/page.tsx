@@ -44,7 +44,7 @@ async function saveEdit(id:string){
   }).sort((a,b)=> (b.pinned?1:0)-(a.pinned?1:0))
   return(
   <main className="min-h-screen bg-[#04010f] text-white p-6 relative overflow-hidden">
-    <div className="absolute inset-0 bg-gradient-to-b from-violet-900/30 via-transparent to-cyan-500/10" />
+    <div className="absolute inset-0 bg-gradient-to-b from-violet-900/30 via-transparent to-cyan-500/10 pointer-events-none" />
     <h1 className="relative text-4xl font-black bg-gradient-to-r from-violet-300 via-pink-300 to-cyan-300 bg-clip-text text-transparent">TimeVault</h1>
     <div className="border border-violet-500/20 bg-white/[0.04] backdrop-blur p-4 rounded-2xl mb-4 text-center">
       <p className="text-xs opacity-60">Total Memories</p>
@@ -108,4 +108,3 @@ async function saveEdit(id:string){
   </main>
  )
 }
-
