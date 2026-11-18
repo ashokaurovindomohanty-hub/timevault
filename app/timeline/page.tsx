@@ -37,7 +37,7 @@ async function saveEdit(id:string){
   const filtered = list.filter(m => {
     const ql = q.toLowerCase()
     return (
-      m.title.toLowerCase().includes(ql) ||
+      m.title?.toLowerCase().includes(ql) ||
       (m.desc && m.desc.toLowerCase().includes(ql)) ||
       (m.tags && m.tags.join(",").toLowerCase().includes(ql))
     )
