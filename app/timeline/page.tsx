@@ -5,7 +5,6 @@ import { supabase } from '@/lib/supabase'
 export default function Timeline(){
   const [list,setList]=useState<any[]>([])
   const [q,setQ]=useState("")
-  const [tagFilter,setTagFilter]=useState("")
   const [editingId,setEditingId]=useState<string|null>(null)
   const [editTitle,setEditTitle]=useState("")
   const [editDesc,setEditDesc]=useState("")
@@ -35,10 +34,14 @@ async function saveEdit(id:string){
   const [mounted,setMounted]=useState(false)
   useEffect(()=>setMounted(true),[])
   if(!mounted) return null
-  const filtered = list.filter(m => 
-    (m.title.toLowerCase().includes(q.toLowerCase()) || (m.desc && m.desc.toLowerCase().includes(q.toLowerCase()))) &&
-    (!tagFilter || (m.tags && m.tags.join(",").toLowerCase().includes(tagFilter.toLowerCase())))
-  ).sort((a,b)=> (b.pinned?1:0)-(a.pinned?1:0))
+  const filtered = list.filter(m => {
+    const ql = q.toLowerCase()
+    return (
+      m.title.toLowerCase().includes(ql) ||
+      (m.desc && m.desc.toLowerCase().includes(ql)) ||
+      (m.tags && m.tags.join(",").toLowerCase().includes(ql))
+    )
+  }).sort((a,b)=> (b.pinned?1:0)-(a.pinned?1:0))
   return(
   <main className="min-h-screen bg-[#04010f] text-white p-6 relative overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-b from-violet-900/30 via-transparent to-cyan-500/10" />
@@ -47,8 +50,12 @@ async function saveEdit(id:string){
       <p className="text-xs opacity-60">Total Memories</p>
       <p className="text-2xl font-black text-violet-300">{list.length}</p>
     </div>
-    <input value={q} onChange={e=>setQ(e.target.value)} placeholder="Search memories..." className="w-full bg-white/5 border border-white/10 rounded-xl p-3 mb-4 outline-none" />
-    <input value={tagFilter} onChange={e=>setTagFilter(e.target.value)} placeholder="Filter by tag..." className="mt-2 w-full max-w-md bg-white/5 border border-white/10 rounded-xl p-3" />
+    <input 
+      value={q} 
+      onChange={e=>setQ(e.target.value)} 
+      placeholder="Search memories or tags... ✨" 
+      className="w-full bg-white/5 border border-white/10 rounded-xl p-3 mb-4 outline-none" 
+    />
     {filtered.map(i=>(
       <div key={i.id} className="relative border border-violet-500/20 bg-white/[0.04] backdrop-blur p-5 my-3 rounded-2xl hover:border-violet-400/40 transition" style={{boxShadow:'0 0 20px rgba(124,58,237,0.15)'}}>
         <h2 className="font-bold">{i.title}</h2>
