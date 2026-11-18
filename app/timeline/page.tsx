@@ -46,17 +46,7 @@ async function saveEdit(id:string){
   <main className="min-h-screen bg-[#04010f] text-white p-6 relative overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-b from-violet-900/30 via-transparent to-cyan-500/10 pointer-events-none" />
     <h1 className="relative text-4xl font-black bg-gradient-to-r from-violet-300 via-pink-300 to-cyan-300 bg-clip-text text-transparent">TimeVault</h1>
-    <div className="border border-violet-500/20 bg-white/[0.04] backdrop-blur p-4 rounded-2xl mb-4 text-center">
-      <p className="text-xs opacity-60">Total Memories</p>
-      <p className="text-2xl font-black text-violet-300">{list.length}</p>
-    </div>
-    <input 
-      value={q} 
-      onChange={e=>setQ(e.target.value)} 
-      placeholder="Search memories or tags... ✨" 
-      className="w-full bg-white/5 border border-white/10 rounded-xl p-3 mb-4 outline-none" 
-    />
-<p className="text-xs opacity-50">Found: {filtered.length} / {list.length} for "{q}"</p>
+    <div className="border border-violet-500/20 bg-white/[0.04] backdrop-blur p-4 rounded-2xl mb-4 text-center"> <p className="text-xs opacity-60">Total Memories</p> <p className="text-2xl font-black text-violet-300">{list.length}</p> </div> <div className="relative mb-4"> <input value={q} onChange={e=>setQ(e.target.value)} placeholder="Search memories or tags... ✨" className="w-full bg-white/5 border border-white/10 rounded-xl p-3 pr-10 outline-none" /> {q && <button onClick={()=>setQ("")} className="absolute right-3 top-3 opacity-60">✕</button>} </div> {filtered.length===0 && <p className="text-center opacity-60 py-6">No memories found for "{q}" <button onClick={()=>setQ("")} className="text-violet-400 underline ml-2">Show all</button></p>}
     {filtered.map(i=>(
       <div key={i.id} className="relative border border-violet-500/20 bg-white/[0.04] backdrop-blur p-5 my-3 rounded-2xl hover:border-violet-400/40 transition" style={{boxShadow:'0 0 20px rgba(124,58,237,0.15)'}}>
         <h2 className="font-bold">{i.title}</h2>
