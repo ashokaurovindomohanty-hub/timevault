@@ -56,6 +56,7 @@ async function saveEdit(id:string){
       placeholder="Search memories or tags... ✨" 
       className="w-full bg-white/5 border border-white/10 rounded-xl p-3 mb-4 outline-none" 
     />
+<p className="text-xs opacity-50">Found: {filtered.length} / {list.length} for "{q}"</p>
     {filtered.map(i=>(
       <div key={i.id} className="relative border border-violet-500/20 bg-white/[0.04] backdrop-blur p-5 my-3 rounded-2xl hover:border-violet-400/40 transition" style={{boxShadow:'0 0 20px rgba(124,58,237,0.15)'}}>
         <h2 className="font-bold">{i.title}</h2>
@@ -107,3 +108,4 @@ async function saveEdit(id:string){
   </main>
  )
 }
+
